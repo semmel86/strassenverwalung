@@ -7,6 +7,7 @@ import fu.alp2.strassenverwaltung.Strasse;
 import fu.alp2.strassenverwaltung.StrassenVerwaltung;
 import fu.alp2.strassenverwaltung.exceptions.HausException;
 import fu.alp2.strassenverwaltung.exceptions.StrassenException;
+import fu.alp2.strassenverwaltung.list.MyList;
 import junit.framework.TestCase;
 
 public class UnitTest {
@@ -104,5 +105,26 @@ public class UnitTest {
 		
 		
 		
+	}
+	
+	@Test
+	public void testMyList(){
+		MyList<String> strList=new MyList<String>();
+		strList.put("first String");
+		strList.put("second String");
+		strList.put("third String");
+		TestCase.assertEquals(false, strList.isEmpty());
+		
+		TestCase.assertEquals(true, strList.contains("first String"));
+		TestCase.assertEquals(true, strList.contains("second String"));
+		TestCase.assertEquals(true, strList.contains("third String"));
+		
+		TestCase.assertEquals("first String", strList.getValue(0));
+		TestCase.assertEquals("second String",  strList.getValue(1));
+		TestCase.assertEquals("third String",  strList.getValue(2));
+		
+		TestCase.assertEquals("first String", strList.pop());
+		TestCase.assertEquals("second String", strList.pop());
+		TestCase.assertEquals("third String", strList.pop());
 	}
 }
